@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Gugliotti_Installments>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Gugliotti_Installments>
+    </modules>
+</config>

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<config>
+    <menu>
+        <gugliotti_installments module="gugliotti_installments" translate="title">
+            <title>Gugliotti</title>
+            <sort_order>100</sort_order>
+            <children>
+                <method module="gugliotti_installments" translate="title">
+                    <title>Methods</title>
+                    <sort_order>10</sort_order>
+                    <action>adminhtml/method/index</action>
+                </method>
+            </children>
+        </gugliotti_installments>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <gugliotti_installments>
+                        <title>Gugliotti</title>
+                        <sort_order>100</sort_order>
+                        <children>
+                            <method>
+                                <title>Methods</title>
+                                <sort_order>10</sort_order>
+                            </method>
+                        </children>
+                    </gugliotti_installments>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <gugliotti_installments>
+                                        <title>Gugliotti Installments</title>
+                                        <sort_order>100</sort_order>
+                                    </gugliotti_installments>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

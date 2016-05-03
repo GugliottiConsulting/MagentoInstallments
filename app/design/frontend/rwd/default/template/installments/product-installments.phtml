@@ -1,0 +1,27 @@
+<?php if ($this->showOnProductPage()) : ?>
+<?php
+$_price = $this->getProduct()->getPrice();
+$_coreHelper = $this->helper('core');
+?>
+<div style="clear: both;"></div>
+<div class="block block-content">
+<h3 onclick="document.getElementById('installmentsBox').toggle();"><?php echo $this->__('Installments'); ?></h3>
+</div>
+<div id="installmentsBox" style="display: none;">
+<?php
+$array = $this->getInstallments($_price);
+foreach ($array as $key => $method) :
+?>
+<h4><?php echo $key; ?></h4>
+<ul id="<?php echo $key; ?>">
+    <?php foreach ($method as $k => $m) : ?>
+    <?php if ($k == 1) : ?>
+    <li>1 <?php echo $this->__('installment of'); ?> <?php echo $_coreHelper->currency($m, true, true); ?></li>
+    <?php else : ?>
+    <li><?php echo $k; ?> <?php echo $this->__('installments of'); ?> <?php echo $_coreHelper->currency($m, true, true); ?></li>
+    <?php endif; ?>
+    <?php endforeach; ?>
+</ul>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
